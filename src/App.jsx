@@ -54,6 +54,20 @@ function App() {
     });
   }
 
+  function changePhoto() {
+    if (counter === 99) {
+      setCounter(0);
+    } else {
+      setCounter(counter + 1);
+    }
+
+    toast("Photo Updated", {
+      icon: "🖼",
+    });
+
+    console.log("changePhoto");
+  }
+
   function fetchQuote() {
     const options = {
       method: "GET",
@@ -82,11 +96,7 @@ function App() {
           const tagsSlice = response.tags.slice(0, 6);
           setTags(tagsSlice);
 
-          if (counter === 99) {
-            setCounter(0);
-          } else {
-            setCounter(counter + 1);
-          }
+          changePhoto();
 
           toast("Quote Updated", {
             icon: "🔄",
@@ -108,7 +118,6 @@ function App() {
     fetch("https://picsum.photos/v2/list?limit=100", options)
       .then((response) => response.json())
       .then((response) => {
-        console.log(response);
         setImageList(response);
       })
       .catch((err) => console.error(err));
@@ -141,14 +150,16 @@ function App() {
         <Toaster position="bottom-center" />
         <img src={IconCopy} className="app-icon-copy" onClick={copyText}></img>
         <img src={IconShare} className="app-icon-share" onClick={shareText} />
-        <img src={IconNewPhoto} className="app-icon-new-photo" />
+        <img
+          src={IconNewPhoto}
+          className="app-icon-new-photo"
+          onClick={changePhoto}
+        />
         <img
           src={IconChangeBg}
           className="app-icon-change-bg"
           onClick={arrayChangeBg}
         />
-
-        {/* buttons to select color - on click, function changes the counter */}
       </div>
     </div>
   );
