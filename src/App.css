@@ -1,0 +1,82 @@
+.App {
+  display: flex;
+  justify-content: center;
+  height: 100vh;
+  align-items: center;
+  flex-direction: column;
+}
+
+.app-icons {
+  display: flex;
+  justify-content: center;
+  margin-top: 30px;
+}
+
+.app-icon-refresh {
+  width: 65px;
+  margin-right: 20px;
+}
+.app-icon-copy {
+  width: 65px;
+}
+
+.app-icon-refresh {
+  /* padding: 50px; */
+  /* background-color: green; */
+  transition: transform 0.2s; /* Animation */
+  /* width: 200px;
+  height: 200px; */
+  margin: 0 auto;
+  /* margin-right: 20px; */
+}
+.app-icon-refresh:hover {
+  transform: scale(
+    1.5
+  ); /* (150% zoom - Note: if the zoom is too large, it will go outside of the viewport) */
+}
+
+.app-icon-copy {
+  /* padding: 50px; */
+  /* background-color: green; */
+  transition: transform 0.2s; /* Animation */
+  /* width: 200px;
+  height: 200px; */
+  margin: 0 auto;
+}
+.app-icon-new-photo {
+  transition: transform 0.2s;
+  margin: 0 auto;
+  width: 65px;
+}
+
+.app-icon-share {
+  transition: transform 0.2s;
+  margin: 0 auto;
+  width: 65px;
+}
+
+.app-icon-change-bg {
+  transition: transform 0.2s;
+  margin: 0 auto;
+  width: 65px;
+}
+
+.app-icon-share:hover {
+  transform: scale(
+    1.5
+  ); /* (150% zoom - Note: if the zoom is too large, it will go outside of the viewport) */
+}
+
+.app-icon-copy:hover {
+  transform: scale(
+    1.5
+  ); /* (150% zoom - Note: if the zoom is too large, it will go outside of the viewport) */
+}
+
+.app-icon-new-photo:hover {
+  transform: scale(1.5);
+}
+
+.app-icon-change-bg:hover {
+  transform: scale(1.5);
+}
