@@ -87,7 +87,8 @@ function App() {
           response.content &&
           response.originator.name &&
           response.tags &&
-          response.author != "Adolf Hittler"
+          response.author != "Adolf Hittler" &&
+          response.content != length < 200
         ) {
           setQuote(response.content);
           setAuthor(response.originator.name);
@@ -102,6 +103,8 @@ function App() {
             icon: "🔄",
           });
         } else if (response.author === "Adolf Hittler") {
+          fetchQuote();
+        } else if (response.content === length > 200) {
           fetchQuote();
         }
       })
