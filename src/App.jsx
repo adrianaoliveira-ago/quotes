@@ -8,6 +8,7 @@ import IconCopy from "./assets/IconCopy.png";
 import IconShare from "./assets/IconShare.svg";
 import IconNewPhoto from "./assets/IconNewPhoto.svg";
 import IconChangeBg from "./assets/IconChangeBg.png";
+import IconSpin from "./assets/IconSpin.gif";
 
 function App() {
   const [quote, setQuote] = useState("");
@@ -17,22 +18,29 @@ function App() {
   const [counter, setCounter] = useState(0);
   const [imageList, setImageList] = useState([]);
 
-  const arrayClassBg = ["bg-initial", "bg-green"];
+  const arrayClassBg = [
+    "bg-initial",
+    "bg-purple",
+    "bg-pink",
+    "bg-purple",
+    "bg-brown",
+    "bg-rosa",
+    "bg-floralwhite",
+  ];
   const [countBg, setCountBg] = useState(0);
+
+  const [showLoading, setShowLoading] = useState(true);
 
   function arrayChangeBg() {
     let newCount = countBg + 1;
-
-    if (newCount > arrayClassBg.length) {
+    console.log(newCount, arrayClassBg.length);
+    if (newCount >= arrayClassBg.length) {
       newCount = 0;
     }
     setCountBg(newCount);
 
     console.log(newCount);
   }
-
-  // array of string containing bg ["polaroid-bg-red", "polaroid-bg-star"]
-  // state for the counter
 
   function copyText() {
     const textToCopy = `${quote} - ${author}`;
@@ -69,6 +77,8 @@ function App() {
   }
 
   function fetchQuote() {
+    setShowLoading(true);
+
     const options = {
       method: "GET",
       headers: {
@@ -81,14 +91,19 @@ function App() {
       .then((response) => response.json())
       .then((response) => {
         console.log(response);
-        console.log(response.content);
 
-        if (
+        if (response.message) {
+          // api error, wait 1,5 second and try again
+          console.log("api error, wait 1,5 second and try again");
+          setTimeout(() => {
+            fetchQuote();
+          }, 1500); // 1500ms === 1,5sec
+        } else if (
           response.content &&
           response.originator.name &&
+          response.originator.name != "Adolf Hitler" &&
           response.tags &&
-          response.author != "Adolf Hittler" &&
-          response.content != length < 200
+          response.content.length < 400
         ) {
           setQuote(response.content);
           setAuthor(response.originator.name);
@@ -102,9 +117,9 @@ function App() {
           toast("Quote Updated", {
             icon: "🔄",
           });
-        } else if (response.author === "Adolf Hittler") {
-          fetchQuote();
-        } else if (response.content === length > 200) {
+          setShowLoading(false);
+        } else {
+          console.warn("quote not valid, fecthing new quote", response);
           fetchQuote();
         }
       })
@@ -134,16 +149,24 @@ function App() {
 
   return (
     <div className="App">
-      <Polaroid
-        quote={quote}
-        author={author}
-        hashtags={tags}
-        photo={
-          imageList.length > 0 &&
-          `https://picsum.photos/id/${imageList[counter].id}/469/497`
-        }
-        backgroundClass={arrayClassBg[countBg]}
-      />
+      {showLoading === true && (
+        <div className="polaroid-icon-spin">
+          {" "}
+          <img src={IconSpin} />{" "}
+        </div>
+      )}
+      {showLoading === false && (
+        <Polaroid
+          quote={quote}
+          author={author}
+          hashtags={tags}
+          photo={
+            imageList.length > 0 &&
+            `https://picsum.photos/id/${imageList[counter].id}/469/497`
+          }
+          backgroundClass={arrayClassBg[countBg]}
+        />
+      )}
       <div className="app-icons">
         <img
           src={IconRefresh}
