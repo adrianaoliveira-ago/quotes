@@ -9,10 +9,14 @@ const Polaroid = ({
 }) => {
   console.log(backgroundClass);
 
+  function imageLoaded() {
+    console.log("imageLoaded");
+  }
+
   return (
     <div className={backgroundClass} id="polaroid">
       <div className="polaroid-text">
-        <img src={photo} className="Polaroid-photo" />
+        <img src={photo} className="Polaroid-photo" onLoad={imageLoaded} />
         {/* <div> */}
         <h1 className="app-quote">{quote}</h1>
         {/* </div> */}

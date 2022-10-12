@@ -40,18 +40,48 @@
 }
 
 #polaroid {
-  /* background-color: floralwhite; */
   width: 520px;
   height: 620px;
   box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
   padding: 1px;
 }
 
-.bg-green {
+.polaroid-icon-spin {
+  height: 662px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+.bg-purple {
   background-color: rgb(116, 99, 172);
   background-image: url("https://www.transparenttextures.com/patterns/subtle-stripes.png");
 }
 
 .bg-initial {
+  background-color: floralwhite;
+  background-image: url("https://www.transparenttextures.com/patterns/light-gray.png");
+}
+
+.bg-pink {
+  background-color: pink;
+  background-image: url("https://www.transparenttextures.com/patterns/arabesque.png");
+}
+
+.bg-purple {
+  background-color: palevioletred;
+  background-image: url("https://www.transparenttextures.com/patterns/asfalt-dark.png");
+}
+
+.bg-brown {
+  background-color: brown;
+  background-image: url("https://www.transparenttextures.com/patterns/brick-wall.png");
+}
+
+.bg-rosa {
+  background-color: rosybrown;
+  background-image: url("https://www.transparenttextures.com/patterns/gray-floral.png");
+}
+
+.bg-floralwhite {
   background-color: floralwhite;
 }
