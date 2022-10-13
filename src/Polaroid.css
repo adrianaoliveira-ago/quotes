@@ -46,6 +46,12 @@
   padding: 1px;
 }
 
+@media only screen and (max-width: 768px) {
+  #polaroid {
+    zoom: 0.7;
+  }
+}
+
 .polaroid-icon-spin {
   height: 662px;
   display: flex;

@@ -55,6 +55,12 @@
   width: 65px;
 }
 
+@media only screen and (max-width: 768px) {
+  .app-icon-share {
+    display: none;
+  }
+}
+
 .app-icon-change-bg {
   transition: transform 0.2s;
   margin: 0 auto;
