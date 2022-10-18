@@ -20,12 +20,18 @@ function App() {
 
   const arrayClassBg = [
     "bg-initial",
-    "bg-purple",
+    "bg-green-light",
     "bg-pink",
     "bg-purple",
     "bg-brown",
     "bg-rosa",
     "bg-floralwhite",
+    "bg-green",
+    "bg-orange",
+    "bg-light-pink",
+    "bg-spot",
+    "bg-natural",
+    "bg-generic",
   ];
   const [countBg, setCountBg] = useState(0);
 

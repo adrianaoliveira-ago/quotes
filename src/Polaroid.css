@@ -58,8 +58,8 @@
   flex-direction: column;
   justify-content: center;
 }
-.bg-purple {
-  background-color: rgb(116, 99, 172);
+.bg-green-light {
+  background-color: #2111d0;
   background-image: url("https://www.transparenttextures.com/patterns/subtle-stripes.png");
 }
 
@@ -74,7 +74,7 @@
 }
 
 .bg-purple {
-  background-color: palevioletred;
+  background-color: rgb(56, 168, 153);
   background-image: url("https://www.transparenttextures.com/patterns/asfalt-dark.png");
 }
 
@@ -90,4 +90,28 @@
 
 .bg-floralwhite {
   background-color: floralwhite;
+}
+.bg-green {
+  background-color: #00c9ac;
+  background-image: url("https://www.transparenttextures.com/patterns/flowers.png");
+}
+.bg-orange {
+  background-color: #ffd29c;
+  background-image: url("https://www.transparenttextures.com/patterns/foggy-birds.png");
+}
+.bg-light-pink {
+  background-color: #f4cae0;
+  background-image: url("https://www.transparenttextures.com/patterns/lyonnette.png");
+}
+.bg-spot {
+  background-color: #bb94a9;
+  background-image: url("https://www.transparenttextures.com/patterns/notebook.png");
+}
+.bg-natural {
+  background-color: #e263af;
+  background-image: url("https://www.transparenttextures.com/patterns/sandpaper.png");
+}
+.bg-generic {
+  background-color: #ffc9bc;
+  background-image: url("https://www.transparenttextures.com/patterns/skulls.png");
 }
