@@ -1,3 +1,7 @@
+import { useEffect } from "react";
+import { useState } from "react";
+
+import IconSpin from "./assets/IconSpin.gif";
 import "./Polaroid.css";
 
 const Polaroid = ({
@@ -7,18 +11,27 @@ const Polaroid = ({
   quote = "",
   backgroundClass = "",
 }) => {
-  console.log(backgroundClass);
+  const [isLoading, setIsLoading] = useState(true);
+
+  useEffect(() => {
+    console.log("photo change");
+    setIsLoading(true);
+  }, [photo]);
 
   function imageLoaded() {
     console.log("imageLoaded");
+    setIsLoading(false);
   }
 
   return (
     <div className={backgroundClass} id="polaroid">
       <div className="polaroid-text">
         <img src={photo} className="Polaroid-photo" onLoad={imageLoaded} />
+        {isLoading === true && (
+          <img src={IconSpin} className="polaroid-photo-spinner" />
+        )}
         {/* <div> */}
-        <h1 className="app-quote">{quote}</h1>
+        {isLoading === false && <h1 className="app-quote">{quote}</h1>}
         {/* </div> */}
       </div>
       <div>

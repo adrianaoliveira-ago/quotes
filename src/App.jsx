@@ -56,16 +56,26 @@ function App() {
     });
   }
 
-  function shareText() {
+  async function shareText() {
     console.log(shareText);
     const node = document.getElementById("polaroid");
+    try {
+      await navigator.share({
+        title: "MDN",
+        text: "Learn web development on MDN!",
+        url: "https://developer.mozilla.org",
+      });
+    } catch (err) {
+      // resultPara.textContent = `Error: ${err}`;
+      alert(err);
+    }
 
-    toJpeg(node, { quality: 1 }).then(function (dataUrl) {
-      var link = document.createElement("a");
-      link.download = "my-image-name.jpeg";
-      link.href = dataUrl;
-      link.click();
-    });
+    // toJpeg(node, { quality: 1 }).then(function (dataUrl) {
+    //   // var link = document.createElement("a");
+    //   // link.download = "my-image-name.jpeg";
+    //   // link.href = dataUrl;
+    //   // link.click();
+    // });
   }
 
   function changePhoto() {
