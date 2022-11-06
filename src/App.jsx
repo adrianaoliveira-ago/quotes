@@ -61,8 +61,15 @@ function App() {
     console.log(shareText);
     const node = document.getElementById("polaroid");
     try {
-      toBlob(node).then(async function (blob) {
-        var file = new File([blob], "Polaroid.jpg");
+      // toBlob(node).then(async function (blob) {
+      toJpeg(node, { quality: 1 }).then(async (dataUrl) => {
+        // var file = new File([blob], "Polaroid.jpg");
+        const blob = await fetch(dataUrl).blob();
+
+        const file = new File([blob], "Polaroid.jpg", {
+          type: "image/jpeg",
+          lastModified: new Date(),
+        });
 
         await navigator.share({
           files: [file],
@@ -71,7 +78,6 @@ function App() {
         });
       });
     } catch (err) {
-      // resultPara.textContent = `Error: ${err}`;
       alert(err);
     }
 
