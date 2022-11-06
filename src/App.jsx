@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import toast, { Toaster } from "react-hot-toast";
-import { toBlob } from "html-to-image";
+import { toBlob, toJpeg } from "html-to-image";
 
 import "./App.css";
 import Polaroid from "./Polaroid";
