@@ -62,21 +62,23 @@ function App() {
     const node = document.getElementById("polaroid");
     try {
       // toBlob(node).then(async function (blob) {
-      toJpeg(node, { quality: 1 }).then(async (dataUrl) => {
-        // var file = new File([blob], "Polaroid.jpg");
-        const blob = await (await fetch(dataUrl)).blob();
+      toJpeg(node, { quality: 1, width: 522, heigh: 622 }).then(
+        async (dataUrl) => {
+          // var file = new File([blob], "Polaroid.jpg");
+          const blob = await (await fetch(dataUrl)).blob();
 
-        const file = new File([blob], "Polaroid.jpg", {
-          type: "image/jpeg",
-          lastModified: new Date(),
-        });
+          const file = new File([blob], "Polaroid.jpg", {
+            type: "image/jpeg",
+            lastModified: new Date(),
+          });
 
-        await navigator.share({
-          files: [file],
-          // text: "Learn web development on MDN!",
-          // url: "https://developer.mozilla.org",
-        });
-      });
+          await navigator.share({
+            files: [file],
+            // text: "Learn web development on MDN!",
+            // url: "https://developer.mozilla.org",
+          });
+        }
+      );
     } catch (err) {
       alert(err);
     }
