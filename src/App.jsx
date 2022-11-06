@@ -65,7 +65,6 @@ function App() {
         var file = new File([blob], "Polaroid.jpg");
 
         await navigator.share({
-          title: "Polaroid",
           files: [file],
           // text: "Learn web development on MDN!",
           // url: "https://developer.mozilla.org",
