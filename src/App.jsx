@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 import toast, { Toaster } from "react-hot-toast";
-import { toJpeg } from "html-to-image";
+import { toBlob } from "html-to-image";
+
 import "./App.css";
 import Polaroid from "./Polaroid";
 import IconRefresh from "./assets/IconRefresh.svg";
@@ -60,10 +61,15 @@ function App() {
     console.log(shareText);
     const node = document.getElementById("polaroid");
     try {
-      await navigator.share({
-        title: "MDN",
-        text: "Learn web development on MDN!",
-        url: "https://developer.mozilla.org",
+      toBlob(node).then(async function (blob) {
+        var file = new File([blob], "name");
+
+        await navigator.share({
+          title: "Polaroid",
+          files: [file],
+          // text: "Learn web development on MDN!",
+          // url: "https://developer.mozilla.org",
+        });
       });
     } catch (err) {
       // resultPara.textContent = `Error: ${err}`;
