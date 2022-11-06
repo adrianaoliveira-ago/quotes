@@ -56,8 +56,8 @@
 }
 
 @media only screen and (max-width: 768px) {
-  #polaroid {
-    zoom: 0.7;
+  .polaroid-photo {
+    width: 350px;
   }
 }
 

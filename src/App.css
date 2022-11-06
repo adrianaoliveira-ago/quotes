@@ -12,6 +12,14 @@
   margin-top: 30px;
 }
 
+.app-icon-download {
+  transition: transform 0.2s; /* Animation */
+  /* width: 200px;
+  height: 200px; */
+  margin: 0 auto;
+  width: 65px;
+}
+
 .app-icon-refresh {
   width: 65px;
   margin-right: 20px;
@@ -53,10 +61,21 @@
   transition: transform 0.2s;
   margin: 0 auto;
   width: 65px;
+  /* display: none; */
 }
 
-/* @media only screen and (max-width: 768px) {
+@media only screen and (min-width: 768px) {
   .app-icon-share {
+    display: none;
+  }
+}
+@media only screen and (max-width: 768px) {
+  .app-icon-download {
+    display: none;
+  }
+}
+/* @media only screen and (max-width: 768px) {
+  .app-icon-download {
     display: none;
   }
 } */
@@ -84,5 +103,9 @@
 }
 
 .app-icon-change-bg:hover {
+  transform: scale(1.5);
+}
+
+.app-icon-download:hover {
   transform: scale(1.5);
 }

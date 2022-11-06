@@ -10,6 +10,7 @@ import IconShare from "./assets/IconShare.svg";
 import IconNewPhoto from "./assets/IconNewPhoto.svg";
 import IconChangeBg from "./assets/IconChangeBg.png";
 import IconSpin from "./assets/IconSpin.gif";
+import IconDownload from "./assets/IconDownload.png";
 
 function App() {
   const [quote, setQuote] = useState("");
@@ -82,13 +83,16 @@ function App() {
     } catch (err) {
       alert(err);
     }
+  }
 
-    // toJpeg(node, { quality: 1 }).then(function (dataUrl) {
-    //   // var link = document.createElement("a");
-    //   // link.download = "my-image-name.jpeg";
-    //   // link.href = dataUrl;
-    //   // link.click();
-    // });
+  function download() {
+    const node = document.getElementById("polaroid");
+    toJpeg(node, { quality: 1 }).then(function (dataUrl) {
+      var link = document.createElement("a");
+      link.download = "my-image-name.jpeg";
+      link.href = dataUrl;
+      link.click();
+    });
   }
 
   function changePhoto() {
@@ -205,6 +209,11 @@ function App() {
         <Toaster position="bottom-center" />
         <img src={IconCopy} className="app-icon-copy" onClick={copyText}></img>
         <img src={IconShare} className="app-icon-share" onClick={shareText} />
+        <img
+          src={IconDownload}
+          className="app-icon-download"
+          onClick={download}
+        />
         <img
           src={IconNewPhoto}
           className="app-icon-new-photo"
