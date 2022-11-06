@@ -64,7 +64,7 @@ function App() {
       // toBlob(node).then(async function (blob) {
       toJpeg(node, { quality: 1 }).then(async (dataUrl) => {
         // var file = new File([blob], "Polaroid.jpg");
-        const blob = await fetch(dataUrl).blob();
+        const blob = await (await fetch(dataUrl)).blob();
 
         const file = new File([blob], "Polaroid.jpg", {
           type: "image/jpeg",
