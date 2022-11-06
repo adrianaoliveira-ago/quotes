@@ -62,7 +62,7 @@ function App() {
     const node = document.getElementById("polaroid");
     try {
       toBlob(node).then(async function (blob) {
-        var file = new File([blob], "name");
+        var file = new File([blob], "Polaroid.jpg");
 
         await navigator.share({
           title: "Polaroid",
